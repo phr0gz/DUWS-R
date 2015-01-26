@@ -204,9 +204,9 @@ if (isMultiplayer) then {
 	if (!isServer) then {
         "finishedMissionsNumber" addPublicVariableEventHandler {[] execVM "persistent\persistent_stats_missions_total.sqf";}; // change the shown CP for request dialog	
 	};	
-	
-	if (((vehiclevarname player) in game_master)) then {
-		if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
+		
+	if (!isDedicated && !HQ_pos_found_generated) then { // SERVER INIT
+		if (((vehiclevarname player) in game_master)) then {
 			DUWS_host_start = false;
 			publicVariable "DUWS_host_start";
 			waitUntil {time > 0.1};
@@ -218,11 +218,11 @@ if (isMultiplayer) then {
 			_handle = [] execVM "dialog\hc_init.sqf";
 			waitUntil {scriptDone getsize_script};
 		};
-	}		
+	};
 };
 
-if (((vehiclevarname player) in game_master)) then {
-	if (!isDedicated && !HQ_pos_found_generated) then {
+if (!isDedicated && !HQ_pos_found_generated) then {
+	if (((vehiclevarname player) in game_master)) then {
 		_null = [] execVM "dialog\startup\hq_placement\placement.sqf";
 		waitUntil {chosen_hq_placement};	
 
@@ -232,7 +232,7 @@ if (((vehiclevarname player) in game_master)) then {
 			waitUntil {scriptDone hq_create};	
 		};
 	};
-}
+};
 	
 /*
 //////// DEBUG LOOP /////////////
