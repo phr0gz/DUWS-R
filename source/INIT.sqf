@@ -159,7 +159,7 @@ player allowDamage false;
 #include "dialog\supports_init.hpp"
 #include "dialog\squad_number_init.hpp"
 	
-execVM "misc\gps_marker.sqf";
+if (hasInterface) then { execVM "misc\gps_marker.sqf";};
 if (!isMultiplayer) then {
 	getsize_script = [player] execVM "mapsize.sqf";
 };	
