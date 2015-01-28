@@ -35,9 +35,11 @@ _VARtaskgeneratedName = format["tsksabot%1%2",round(_MissionPos select 0),round(
 
 
 
-_taskhandle = player createSimpleTask ["taskSabot"];
-_taskhandle setSimpleTaskDescription ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.",_mission_name,""];
-_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+//_taskhandle = player createSimpleTask ["taskSabot"];
+//_taskhandle setSimpleTaskDescription ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.",_mission_name,""];
+//_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+
+[west, "_taskhandle", ["taskSabot.", "The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies."], objNull, true] call BIS_fnc_taskCreate; 
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
