@@ -47,7 +47,7 @@ _VARtaskgeneratedName = format ["rescue%1%2",round(_MissionPos select 0),round(_
 //_taskhandle setSimpleTaskDescription ["One of our patrols has been ambushed and requires immediate assistance",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
-[west, "_taskhandle", ["taskRescue.", "One of our patrols has been ambushed and requires immediate assistance",_mission_name,"", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["taskRescue.", "One of our patrols has been ambushed and requires immediate assistance", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
