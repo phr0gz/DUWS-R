@@ -41,9 +41,11 @@ _pilot setcaptive true;
 _pilot switchMove "acts_CrouchingIdleRifle01";
 
 // TASK AND NOTIFICATION
-_taskhandle = player createSimpleTask ["taskPilot"];
-_taskhandle setSimpleTaskDescription ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.",_mission_name,""];
-_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
+//_taskhandle = player createSimpleTask ["taskPilot"];
+//_taskhandle setSimpleTaskDescription ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.",_mission_name,""];
+//_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));/
+
+[west, "_taskhandle", ["taskPilot.", "One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
 ["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
@@ -54,7 +56,9 @@ if (!(alive _pilot)) exitWith { // CHECK IF PILOT ALIVE
 deleteMarker str(_markername2);
 deleteMarker str(_markername);
 
-player removeSimpleTask _taskhandle;
+//player removeSimpleTask _taskhandle;
+[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
+
 ["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
 }; // END IF FAILED
 
@@ -69,7 +73,8 @@ if (!(alive _pilot)) exitWith { // CHECK IF PILOT ALIVE
 deleteMarker str(_markername2);
 deleteMarker str(_markername);
 
-player removeSimpleTask _taskhandle;
+//player removeSimpleTask _taskhandle;
+[["_taskhandle", "WEST"],"BIS_fnc_deleteTask", true, true] call BIS_fnc_MP;
 ["TaskFailed",["","The pilot is dead"]] call bis_fnc_showNotification;
 }; // END IF FAILED
 
