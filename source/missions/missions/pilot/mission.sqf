@@ -45,9 +45,9 @@ _pilot switchMove "acts_CrouchingIdleRifle01";
 //_taskhandle setSimpleTaskDescription ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));/
 
-[west, "_taskhandle", ["taskPilot.", "One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["One of our AH-99 helicopters has been downed somewhere around this area. We have reports that the pilot is still alive. You must find him and bring him back to base.", _mission_name, "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
-["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
+//["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 waitUntil {sleep 1; (player distance _pilot)<6 OR !(alive _pilot)};  // PLAYER IS WITH THE PILOT --
 

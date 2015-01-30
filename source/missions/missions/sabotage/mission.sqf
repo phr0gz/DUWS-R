@@ -39,9 +39,9 @@ _VARtaskgeneratedName = format["tsksabot%1%2",round(_MissionPos select 0),round(
 //_taskhandle setSimpleTaskDescription ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
 
-[west, "_taskhandle", ["taskSabot.", "The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies."], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["The enemy is using a power supply somewhere in this area. We need you to find it and sabotage it. It will allow us to have a bit of better intel on our enemies.", _mission_name, "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
-["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
+//["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 call compile format ["%1 = _taskhandle",_VARtaskgeneratedName]; // create variable using the generated name so we can access it with the action
 

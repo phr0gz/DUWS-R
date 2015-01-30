@@ -42,9 +42,9 @@ _unit = _group createUnit ["O_soldier_F", _missionpos, [], 0, "FORM"];
 //_taskhandle = player createSimpleTask ["taskTarget"];
 //_taskhandle setSimpleTaskDescription ["A high enemy target has been spotted somewhere in this location. Hunt him down.",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
-[west, "_taskhandle", ["taskDestroy.", "A high enemy target has been spotted somewhere in this location. Hunt him down.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["A high enemy target has been spotted somewhere in this location. Hunt him down.", _mission_name, "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
-["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
+//["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 waitUntil {sleep 2; !alive _target};  // MISSION COMPLETED --
 

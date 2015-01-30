@@ -47,9 +47,9 @@ _box3 setdir 180;
 //_taskhandle = player createSimpleTask ["taskSteal"];
 //_taskhandle setSimpleTaskDescription ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.",_mission_name,""];
 //_taskhandle setSimpleTaskDestination (getMarkerPos str(_markername));
-[west, "_taskhandle", ["taskSteal.", "An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.", "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
+[west, "_taskhandle", ["An enemy truck full of supplies has been spotted in the area. Find it and bring it back to the base in one piece.", _mission_name, "(getMarkerPos str(_markername)"], objNull, true] call BIS_fnc_taskCreate; 
 
-["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
+//["TaskAssigned",["",_mission_name]] call bis_fnc_showNotification;
 
 // CREATE PATROLS
       sleep 1;
