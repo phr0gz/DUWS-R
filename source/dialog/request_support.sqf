@@ -86,7 +86,8 @@ switch (_index2) do {
             if (!support_armory_available) then {
                 commandpointsblu1 = commandpointsblu1 - 8;
                 ctrlSetText [1000, format["%1",commandpointsblu1]];
-                hq_blu1 addaction ["<t color='#ff1111'>Armory</t>","VAS\open.sqf", "", 0, true, true, "", "_this == player"];
+                hq_blu1 addaction ["<t color='#ff1111'>Armory</t>","VAS\open.sqf"];
+				hq_blu1 addaction ["<t color='#11ff11'>Virtual Arsenal</t>", "arsenalbox.sqf"];
                 lbSetColor [2103, 5, [0, 1, 0, 1]];
                 support_armory_available = true;
                 playSound "loadgun";
