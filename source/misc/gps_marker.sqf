@@ -29,5 +29,6 @@ while {true} do {
 		if (_number == -1) then {_player_has_gps = false; deletemarker str(_markername)};
 		sleep 0.7;
 	};
+	deletemarker str(_markername);
 sleep 0.2;
 };
